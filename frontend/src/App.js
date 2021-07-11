@@ -1,6 +1,7 @@
 import './App.css';
 import Navigation from './components/Navigation'
 import React from 'react'
+import home from './Images/home.png' ;
 import { Route, HashRouter } from 'react-router-dom'
 
 function App() {
@@ -10,11 +11,9 @@ function App() {
         <Navigation />
       </div>
 
-     <Route exact path="/" render={() => (
-       <div className="col-sm-6">
-         <img src="/Images/home.png" alt="home"/>
-       </div>
-      
+      <Route exact path="/" render={() => (
+        <img src={home} className="img-thumbnail" alt="Home" />
+
 
       )} />
     </HashRouter>
