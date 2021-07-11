@@ -1,16 +1,19 @@
 
-#img-home{
-  background:url(../src/Images/home.png) no-repeat center fized;
+#home{
+  background:url(/src/Images/smart-home.jpg) no-repeat center center fixed;
   display:table;
-  height:100%;
-  position:center;
+  height:500px;
+  position:relative;
   width:100%;
   background-size:cover;
+  padding: 250px ;
 }
+
 .landing-text{
   display: table-cell;
   text-align: center;
   vertical-align: middle;
+  color:aliceblue;
 }
 .landing-text h1{
   font-size:500% ;
