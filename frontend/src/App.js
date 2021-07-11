@@ -11,7 +11,7 @@ function App() {
       </div>
 
      <Route exact path="/" render={() => (
-       <div className="col-sm-6">
+       <div id="img-home">
          <img src="/Images/home.png" alt="home"/>
        </div>
       
