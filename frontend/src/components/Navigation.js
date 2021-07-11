@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 export default class Navigation extends Component {
   render() {
     return (
+      <div>
       <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">Home</Link>
@@ -19,6 +20,8 @@ export default class Navigation extends Component {
           </div>
         </div>
       </nav>
+     
+      </div>
     )
   }
 }
