@@ -1,5 +1,8 @@
 import './App.css';
 import Navigation from './components/Navigation'
+import Top from './components/Top.js'
+import CharMed from './components/CharMed'
+import CharConsumo from './components/CharConsumo'
 import React from 'react'
 import { Route, HashRouter } from 'react-router-dom'
 
@@ -18,6 +21,9 @@ function App() {
           </div>
         </div>
       )} />
+      <Route path="/top" exact component={Top} />
+      <Route path="/mediciones" exact component={CharMed} />
+      <Route path="/consumo" exact component={CharConsumo} />
     </HashRouter>
   );
 }
