@@ -17,18 +17,31 @@ function extraerLista(List, ListC, ListF){
 export default class ShowConCoc extends Component {
 
     render() {
-        
+        var data_dt = {
+            labels: this.state.Electrod,
+            datasets: [
+                {
+                    label: 'Registro de las cocinas',
+                    backgroundColor: 'rgba(255,99,132,0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 5,
+                    hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+                    hoverBorderColor: 'rgba(255,99,132,1)',
+                    data: this.state.Consumos
+                }
+            ]
+        };
         return (
             <div>
+                <h2>Cocina con menor consumo:</h2><h2>{this.state.Electrod[0]}</h2>
                 <Bar
-                    data={this.data}
-                    width={75}
-                    height={25}
+                    data={data_dt}
+                    width={200}
+                    height={60}
                     options={{
                         maintainAspectRatio: true
                     }}
                 />
-                <h2>Cocina con menor consumo:</h2><h2>{this.state.Electrod[0]}</h2>
             </div>
         )
     }
@@ -51,18 +64,4 @@ export default class ShowConCoc extends Component {
         //console.log(this.state.Tiempos);
     }
 
-    data = {
-        labels: this.state.Electrod,
-        datasets: [
-            {
-                label: 'Registro de las cocinas',
-                backgroundColor: 'rgba(255,99,132,0.2)',
-                borderColor: 'rgba(255,99,132,1)',
-                borderWidth: 5,
-                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                hoverBorderColor: 'rgba(255,99,132,1)',
-                data: this.state.Consumos
-            }
-        ]
-    };
 }  

@@ -6,21 +6,39 @@ import { backend } from '../App';
 //import { render } from 'react-dom';
 import React, { Component } from 'react'
 
+function extraerLista(List, ListC, ListF){
+    for(var i in List){
+        ListC.push(List[i].Consumo);
+        ListF.push(List[i].Tiempo);
+    }
+}
 
 
 export default class ShowConRef extends Component {
-    //var setBarData;
-    //const [Consumos, setConsumos] = useState([]);
-    //const [Tiempo, setTiempos] = useState([]);
 
     render() {
+        var data_dt = {
+            labels: (this.state.Tiempos),
+            datasets: [
+                {
+                    label: 'Registro de la refrigeradora',
+                    backgroundColor: 'rgba(255,99,132,0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 5,
+                    hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+                    hoverBorderColor: 'rgba(255,99,132,1)',
+                    data: this.state.Consumos
+                }
+            ]
+        };
+        console.log(data_dt);
         return (
             <div>
-                <h2>Bar Example (custom size)</h2>
+                <h2>20 registros máximos de la refrigeradora</h2>
                 <Bar
-                    data={this.data}
-                    width={100}
-                    height={50}
+                    data={data_dt}
+                    width={200}
+                    height={80}
                     options={{
                         maintainAspectRatio: true
                     }}
@@ -32,32 +50,20 @@ export default class ShowConRef extends Component {
     state = { 
         objetos: [],
         Consumo: '',
-        Tiempo: ''
+        Tiempo: '',
+        Consumos: [],
+        Tiempos: []
     }
+
     async getconsuRefri() {
         const res = await axios.get(backend.host + ':' + backend.port + '/consumorefrigerador')
         this.setState({objetos:res.data});
     }
     async componentDidMount() {
         await this.getconsuRefri();
-        console.log(this.state.objetos);
+        extraerLista(this.state.objetos,this.state.Consumos,this.state.Tiempos);
+        console.log(this.state.Tiempos);
     }
 
-    data = {
-        labels: this.state.Tiempo,
-        datasets: [
-            {
-                label: 'My First dataset',
-                backgroundColor: 'rgba(255,99,132,0.2)',
-                borderColor: 'rgba(255,99,132,1)',
-                borderWidth: 10,
-                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                hoverBorderColor: 'rgba(255,99,132,1)',
-                data: this.state.objetos.map(function (item, key)
-                {
-                    return item.Consumo;
-                }),
-            }
-        ]
-    };
+    
 }  

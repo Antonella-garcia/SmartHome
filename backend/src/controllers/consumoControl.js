@@ -79,7 +79,7 @@ conControl.getconsuRefri = (req,res)=>{
         var vectorOrden = tiempo.slice().sort(comparar)
         for(t in vectorOrden){
             ind = tiempo.indexOf(vectorOrden[t])
-            resultado.push({"Consumo":consumos[ind],"Tiempo":String(tiempo[ind])});
+            resultado.push({"Consumo":consumos[ind],"Tiempo":Math.round((tiempo[ind])/60)});
         }
         res.json(resultado);
     });
