@@ -34,7 +34,7 @@ export default class ShowConRef extends Component {
         console.log(data_dt);
         return (
             <div>
-                <h2>20 registros máximos de la refrigeradora</h2>
+                <h2>Las 20 refrigeradoras con mayor consumo</h2>
                 <Bar
                     data={data_dt}
                     width={200}
@@ -64,6 +64,24 @@ export default class ShowConRef extends Component {
         extraerLista(this.state.objetos,this.state.Consumos,this.state.Tiempos);
         console.log(this.state.Tiempos);
     }
+//grafico de barras
+    data = {
+        labels: this.state.Tiempo,
+        datasets: [
+            {
+                label: 'Refrigeradoras',
+                backgroundColor: 'rgba(255,99,132,0.2)',
+                borderColor: 'rgba(255,99,132,1)',
+                borderWidth: 10,
+                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+                hoverBorderColor: 'rgba(255,99,132,1)',
+                data: this.state.objetos.map(function (item, key)
+                {
+                    return item.Consumo;
+                }),
+            }
+        ]
+    };
 
-    
+
 }  

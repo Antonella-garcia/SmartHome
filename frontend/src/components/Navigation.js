@@ -13,9 +13,9 @@ export default class Navigation extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <Link className="nav-link active" aria-current="page" to="/top">Top 10 consumo electrodomésticos </Link>
-              <Link className="nav-link" to="/mediciones">Gráficas mediciones mayor consumo - refrigeradoras</Link>
-              <Link className="nav-link" to="/consumo">Gráficas consumo - cocinas 12, 14 y 38</Link>
+              <Link className="nav-link active" aria-current="page" to="/top10">Top 10 consumo electrodomésticos </Link>
+              <Link className="nav-link" to="/consumorefrigerador">Gráficas mediciones mayor consumo - refrigeradoras</Link>
+              <Link className="nav-link" to="/consucocina">Gráficas consumo - cocinas 12, 14 y 38</Link>
             </div>
           </div>
         </div>
