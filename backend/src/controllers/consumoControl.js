@@ -86,13 +86,28 @@ conControl.getconsuRefri = (req,res)=>{
 }
 
 conControl.getconsuCocina = (req,res)=>{
+    var Claves = new Array();
+    var Valores = new Array();
     db.query("Select AVG(Kitchen12), AVG(Kitchen14), AVG(Kitchen38) FROM KITCHEN", (err,result,fields)=>{
         if (err) {
             res.status(500).send(err);
             console.log(err);
             return;
         }
-        res.json(result);
+        Claves = Claves.concat(Object.keys(result[0]));
+        Valores = Valores.concat(Object.values(result[0]));
+        function comparar(a, b) {
+            return a - b;
+        }
+        var resultado = new Array(0);
+        var vectorOrden = Valores.slice().sort(comparar);
+        var cont = 0;
+        while(cont<3){
+            ind = Valores.indexOf(vectorOrden[cont])
+            resultado.push({"Puesto":(cont+1),"Electrodomestico":Claves[ind].slice(4,-1),"Consumo":Valores[ind]});
+            cont=cont+1;
+        }
+        res.json(resultado);
     });
 }
 
