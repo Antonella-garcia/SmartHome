@@ -16,7 +16,7 @@ export default class ShowConRef extends Component {
     render() {
         return (
             <div>
-                <h2>Bar Example (custom size)</h2>
+                <h2>Las 20 refrigeradoras con mayor consumo</h2>
                 <Bar
                     data={this.data}
                     width={100}
@@ -42,12 +42,12 @@ export default class ShowConRef extends Component {
         await this.getconsuRefri();
         console.log(this.state.objetos);
     }
-
+//grafico de barras
     data = {
         labels: this.state.Tiempo,
         datasets: [
             {
-                label: 'My First dataset',
+                label: 'Refrigeradoras',
                 backgroundColor: 'rgba(255,99,132,0.2)',
                 borderColor: 'rgba(255,99,132,1)',
                 borderWidth: 10,
@@ -60,4 +60,6 @@ export default class ShowConRef extends Component {
             }
         ]
     };
+
+
 }  

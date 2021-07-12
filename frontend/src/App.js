@@ -12,6 +12,13 @@ function App() {
   return (
     <Router>
      <Navigation/>
+     <Route exact path="/" render={() => (
+        <div id="home">
+          <div class="landing-text">
+          <h1 >SMARTHOME</h1>
+          <h3>Bienvenido, escoge una de nuestras opciones</h3>
+        </div>
+      </div>)}/>
      <Route path="/top10" exact component={Show} />
      <Route path="/consumorefrigerador" exact component={ShowCR} />
      <Route path="/consucocina" render={()=>(<div>Holaaaa</div>)}/>
